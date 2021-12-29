@@ -1,3 +1,5 @@
+import getId from "../utils/getId";
+
 // 비지니스 로직을 App.jsx에서 관리하는 것이 아니라 여기서 관리하게 된다.
 export default class HabitPresenter {
   constructor(habits) {
@@ -40,7 +42,7 @@ export default class HabitPresenter {
   }
 
   add(name, update) {
-    this.habits = [...this.habits, { id: Date.now(), name, count: 0 }];
+    this.habits = [...this.habits, { id: getId(), name, count: 0 }];
 
     update(this.habits);
   }
