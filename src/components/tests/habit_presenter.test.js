@@ -80,12 +80,26 @@ describe('HabitPresenter', () => {
     checkUpdateIsCalled();
   });
 
-  it('reset habit\'s count and calls update', () => {
-    habitPresenter.reset(update);
+  describe('reset', () => {
+    it('reset habit\'s count and calls update', () => {
+      habitPresenter.reset(update);
+  
+      expect(habitPresenter.getHabits()[0].count).toBe(0);
+      expect(habitPresenter.getHabits()[1].count).toBe(0);
+      expect(habitPresenter.getHabits()[2].count).toBe(0);
+      checkUpdateIsCalled();
+    });
 
-    expect(habitPresenter.getHabits()[0].count).toBe(0);
-    expect(habitPresenter.getHabits()[1].count).toBe(0);
-    expect(habitPresenter.getHabits()[2].count).toBe(0);
-    checkUpdateIsCalled();
-  });
+    // 이 로직은 강제하고 싶기 때문에 별도로 테스트코드를 작성한다.
+    it('doesn\'t create new object when count is 0', () => {
+      const habits = habitPresenter.getHabits();
+      habitPresenter.reset(update);
+      const updateHabits = habitPresenter.getHabits();
+
+      // toBe는 참조가 다르면 fail이 뜬다.
+      // toEqual은 참조가 달라도 값이 같으면 success가 뜬다. 즉 오브젝트의 값을 체크한다.
+      expect(updateHabits[1]).toBe(habits[1]);
+      expect(updateHabits[1]).toEqual(habits[1]);
+    });
+  })
 });

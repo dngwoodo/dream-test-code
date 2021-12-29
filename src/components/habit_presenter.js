@@ -49,6 +49,8 @@ export default class HabitPresenter {
 
   reset(update) {
     this.habits = this.habits.map(habit => {
+      // 여기 구현은 리랜더링 때문에 필요한 부분만 변경되도록 로직을 만들었다.
+      // 예를 들어 return { ...habit, count: 0 } 으로 하게되도 테스트는 깨지지 않는다.
       if (habit.count !== 0) {
         return { ...habit, count: 0 };
       }
