@@ -13,6 +13,11 @@ const HABITS = [
 describe('HabitPresenter', () => {
   let update;
   let habitPresenter;
+
+  function checkUpdateIsCalled() {
+    expect(update).toBeCalledTimes(1);
+    expect(update).toBeCalledWith(habitPresenter.getHabits());
+  }
   
   beforeEach(() => {
     getId.mockImplementation(() => 100);
@@ -37,8 +42,7 @@ describe('HabitPresenter', () => {
       { id: 2, name: 'Running', count: 0 },
       { id: 3, name: 'Coding', count: 1 },
     ]);
-    expect(update).toBeCalledTimes(1);
-    expect(update).toBeCalledWith(habitPresenter.getHabits());
+    checkUpdateIsCalled();
   });
 
   it('decrements habit count and calls update', () => {
@@ -54,43 +58,34 @@ describe('HabitPresenter', () => {
     habitPresenter.decrement(HABITS[0], update);
 
     expect(habitPresenter.getHabits()[0].count).toEqual(0);
-    expect(update).toBeCalledTimes(1);
-    expect(update).toBeCalledWith(habitPresenter.getHabits());
+    checkUpdateIsCalled();
   });
 
   it('delete habit and calls update', () => {
     habitPresenter.delete(HABITS[0], update);
-    const habits = habitPresenter.getHabits();
 
-    expect(habits).toEqual([
+    expect(habitPresenter.getHabits()).toHaveLength(2);
+    expect(habitPresenter.getHabits()).toEqual([
       { id: 2, name: 'Running', count: 0 },
       { id: 3, name: 'Coding', count: 1 },
     ]);
-    expect(update).toBeCalledTimes(1);
-    expect(update).toBeCalledWith(habitPresenter.getHabits());
+    checkUpdateIsCalled();
   });
 
-  it('add habit and calls update', () => {
+  it('add new habit and calls update', () => {
     habitPresenter.add('xxx', update);
 
-    const habits = habitPresenter.getHabits();
-
-    expect(habits).toEqual([...HABITS, { id: 100, name: 'xxx', count: 0}]);
-    expect(update).toBeCalledTimes(1);
-    expect(update).toBeCalledWith(habitPresenter.getHabits());
+    expect(habitPresenter.getHabits()).toHaveLength(4);
+    expect(habitPresenter.getHabits()).toEqual([...HABITS, { id: 100, name: 'xxx', count: 0 }]);
+    checkUpdateIsCalled();
   });
 
   it('reset habit\'s count and calls update', () => {
     habitPresenter.reset(update);
 
-    const habits = habitPresenter.getHabits();
-
-    expect(habits).toEqual([
-      { id: 1, name: 'Reading', count: 0 },
-      { id: 2, name: 'Running', count: 0 },
-      { id: 3, name: 'Coding', count: 0 },
-    ]);
-    expect(update).toBeCalledTimes(1);
-    expect(update).toBeCalledWith(habitPresenter.getHabits());
+    expect(habitPresenter.getHabits()[0].count).toBe(0);
+    expect(habitPresenter.getHabits()[1].count).toBe(0);
+    expect(habitPresenter.getHabits()[2].count).toBe(0);
+    checkUpdateIsCalled();
   });
 });
