@@ -2,8 +2,9 @@ import getId from "../utils/getId";
 
 // 비지니스 로직을 App.jsx에서 관리하는 것이 아니라 여기서 관리하게 된다.
 export default class HabitPresenter {
-  constructor(habits) {
+  constructor(habits, maxHabits) {
     this.habits = habits;
+    this.maxHabits = maxHabits;
   }
 
   getHabits(){
@@ -42,6 +43,10 @@ export default class HabitPresenter {
   }
 
   add(name, update) {
+    if(this.maxHabits === this.habits.length) {
+      throw Error(`습관의 갯수는 ${this.maxHabits}개까지만 추가할 수 있습니다.`)
+    } 
+
     this.habits = [...this.habits, { id: getId(), name, count: 0 }];
 
     update(this.habits);

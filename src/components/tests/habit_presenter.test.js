@@ -23,7 +23,7 @@ describe('HabitPresenter', () => {
     getId.mockImplementation(() => 100);
     
     update = jest.fn();
-    habitPresenter = new HabitPresenter(HABITS);
+    habitPresenter = new HabitPresenter(HABITS, 5);
   })
 
   it('inits habits', () => {
@@ -72,16 +72,25 @@ describe('HabitPresenter', () => {
     checkUpdateIsCalled();
   });
 
-  it('add new habit and calls update', () => {
-    habitPresenter.add('xxx', update);
+  describe('add', () => {
+    it('adds new habit and calls update', () => {
+      habitPresenter.add('xxx', update);
+  
+      expect(habitPresenter.getHabits()).toHaveLength(4);
+      expect(habitPresenter.getHabits()).toEqual([...HABITS, { id: 100, name: 'xxx', count: 0 }]);
+      checkUpdateIsCalled();
+    });
 
-    expect(habitPresenter.getHabits()).toHaveLength(4);
-    expect(habitPresenter.getHabits()).toEqual([...HABITS, { id: 100, name: 'xxx', count: 0 }]);
-    checkUpdateIsCalled();
-  });
+    it('throws an error when the max habits limit is exceeded', () => {
+      habitPresenter.add('xxx', update);
+      habitPresenter.add('xxx', update);
+  
+      expect(() => habitPresenter.add('xxx', update)).toThrow(`습관의 갯수는 5개까지만 추가할 수 있습니다.`);
+    });
+  })
 
   describe('reset', () => {
-    it('reset habit\'s count and calls update', () => {
+    it('resets habit\'s count and calls update', () => {
       habitPresenter.reset(update);
   
       expect(habitPresenter.getHabits()[0].count).toBe(0);
