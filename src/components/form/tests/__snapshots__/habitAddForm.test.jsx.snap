@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HabitAddForm renders 1`] = `
+<form
+  className="add-form"
+  onSubmit={[Function]}
+>
+  <input
+    className="add-input"
+    placeholder="Habit"
+    type="text"
+  />
+  <button
+    className="add-button"
+  >
+    Add
+  </button>
+</form>
+`;
