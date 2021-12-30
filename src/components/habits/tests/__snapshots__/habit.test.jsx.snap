@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Habits renders 1`] = `
+<div
+  className="habits"
+>
+  <form
+    className="add-form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="add-input"
+      placeholder="Habit"
+      type="text"
+    />
+    <button
+      className="add-button"
+    >
+      Add
+    </button>
+  </form>
+  <ul>
+    <li
+      className="habit"
+    >
+      <span
+        className="habit-name"
+      >
+        Reading
+      </span>
+      <span
+        className="habit-count"
+      >
+        0
+      </span>
+      <button
+        className="habit-button habit-increase"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-plus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-decrease"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-minus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-delete"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-trash"
+        />
+      </button>
+    </li>
+    <li
+      className="habit"
+    >
+      <span
+        className="habit-name"
+      >
+        Running
+      </span>
+      <span
+        className="habit-count"
+      >
+        0
+      </span>
+      <button
+        className="habit-button habit-increase"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-plus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-decrease"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-minus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-delete"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-trash"
+        />
+      </button>
+    </li>
+    <li
+      className="habit"
+    >
+      <span
+        className="habit-name"
+      >
+        Coding
+      </span>
+      <span
+        className="habit-count"
+      >
+        0
+      </span>
+      <button
+        className="habit-button habit-increase"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-plus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-decrease"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-minus-square"
+        />
+      </button>
+      <button
+        className="habit-button habit-delete"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-trash"
+        />
+      </button>
+    </li>
+  </ul>
+  <button
+    className="habits-reset"
+    onClick={[MockFunction]}
+  >
+    Reset All
+  </button>
+</div>
+`;
