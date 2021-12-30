@@ -33,50 +33,43 @@ describe('Habit', () => {
     expect(component.toJSON()).toMatchSnapshot();
   });
 
-  describe('event', () => {
-    let incrementButton;
-    let decrementButton;
-    let deleteButton;
-
-    function renderHabit(habit) {
-      return render(
-       <Habit 
-          habit={habit}
-          onIncrement={handleIncrement}
-          onDecrement={handleDecrement}
-          onDelete={handleDelete}
-        />
-      )
-    }
-
+  describe('Button Click', () => {
     beforeEach(() => {
-      renderHabit(HABIT);
-
-      [incrementButton, decrementButton, deleteButton] = screen.getAllByRole('button');
+      render(
+        <Habit 
+           habit={HABIT}
+           onIncrement={handleIncrement}
+           onDecrement={handleDecrement}
+           onDelete={handleDelete}
+         />
+       )
     })
 
     it('listens increment button click event', () => {
       expect(handleIncrement).toBeCalledTimes(0);
 
-      userEvent.click(incrementButton);
+      userEvent.click(screen.getByTitle('increment'));
 
       expect(handleIncrement).toBeCalledTimes(1);
+      expect(handleIncrement).toBeCalledWith(HABIT);
     })
 
     it('listens decrement button click event', () => {
-      expect(handleIncrement).toBeCalledTimes(0);
+      expect(handleDecrement).toBeCalledTimes(0);
 
-      userEvent.click(decrementButton);
+      userEvent.click(screen.getByTitle('decrement'));
 
       expect(handleDecrement).toBeCalledTimes(1);
+      expect(handleDecrement).toBeCalledWith(HABIT);
     })
 
     it('listens delete button click event', () => {
-      expect(handleIncrement).toBeCalledTimes(0);
+      expect(handleDelete).toBeCalledTimes(0);
 
-      userEvent.click(deleteButton);
+      userEvent.click(screen.getByTitle('delete'));
 
       expect(handleDelete).toBeCalledTimes(1);
+      expect(handleDelete).toBeCalledWith(HABIT);
     })
   })
 });
