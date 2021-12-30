@@ -1,6 +1,6 @@
 import React from 'react';
 import Habit from './habit';
-import HabitAddForm from './habitAddForm';
+import HabitAddForm from './form/tests/habitAddForm';
 
 const Habits = ({ habits, onIncrement, onDecrement, onDelete, onAdd, onReset }) => {
   return (
