@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders 1`] = `
+Array [
+  <nav
+    className="navbar"
+  >
+    <i
+      className="navbar-logo fas fa-leaf"
+    />
+    <span>
+      Habit Tracker
+    </span>
+    <span
+      className="navbar-count"
+      data-testid="total-count"
+    >
+      1
+    </span>
+  </nav>,
+  <div
+    className="habits"
+  >
+    <form
+      className="add-form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="add-input"
+        placeholder="Habit"
+        type="text"
+      />
+      <button
+        className="add-button"
+      >
+        Add
+      </button>
+    </form>
+    <ul>
+      <li
+        className="habit"
+      >
+        <span
+          className="habit-name"
+          data-testid="habit-name"
+        >
+          Reading
+        </span>
+        <span
+          className="habit-count"
+          data-testid="habit-count"
+        >
+          0
+        </span>
+        <button
+          className="habit-button habit-increase"
+          onClick={[Function]}
+          title="increment"
+        >
+          <i
+            className="fas fa-plus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-decrease"
+          onClick={[Function]}
+          title="decrement"
+        >
+          <i
+            className="fas fa-minus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-delete"
+          onClick={[Function]}
+          title="delete"
+        >
+          <i
+            className="fas fa-trash"
+          />
+        </button>
+      </li>
+      <li
+        className="habit"
+      >
+        <span
+          className="habit-name"
+          data-testid="habit-name"
+        >
+          Running
+        </span>
+        <span
+          className="habit-count"
+          data-testid="habit-count"
+        >
+          0
+        </span>
+        <button
+          className="habit-button habit-increase"
+          onClick={[Function]}
+          title="increment"
+        >
+          <i
+            className="fas fa-plus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-decrease"
+          onClick={[Function]}
+          title="decrement"
+        >
+          <i
+            className="fas fa-minus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-delete"
+          onClick={[Function]}
+          title="delete"
+        >
+          <i
+            className="fas fa-trash"
+          />
+        </button>
+      </li>
+      <li
+        className="habit"
+      >
+        <span
+          className="habit-name"
+          data-testid="habit-name"
+        >
+          Coding
+        </span>
+        <span
+          className="habit-count"
+          data-testid="habit-count"
+        >
+          1
+        </span>
+        <button
+          className="habit-button habit-increase"
+          onClick={[Function]}
+          title="increment"
+        >
+          <i
+            className="fas fa-plus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-decrease"
+          onClick={[Function]}
+          title="decrement"
+        >
+          <i
+            className="fas fa-minus-square"
+          />
+        </button>
+        <button
+          className="habit-button habit-delete"
+          onClick={[Function]}
+          title="delete"
+        >
+          <i
+            className="fas fa-trash"
+          />
+        </button>
+      </li>
+    </ul>
+    <button
+      className="habits-reset"
+      onClick={[Function]}
+    >
+      Reset All
+    </button>
+  </div>,
+]
+`;
